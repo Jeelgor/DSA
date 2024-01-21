@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "*.gradle": "dart",
+        "*.tcc": "cpp",
+        "string": "cpp",
+        "memory": "cpp",
+        "string_view": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "streambuf": "cpp",
+        "tuple": "cpp"
+    }
+}
