@@ -18,7 +18,7 @@ void SelectionSort(vector<int>&v)
         for(int j=i+1;j<n;j++){
             if(v[j]<v[minIndex])
             {
-                minIndex=j;
+                minIndex=j;  
             }
         }
         swap(v[i],v[minIndex]);
