@@ -22,7 +22,7 @@ int main()
     int arr[6]={10,-7,-5,45,34,-9};
     int n=6;
     DiffNum(arr,n);
-    cout<<"for printing array";
+    cout<<"for printing array"<<endl;
     for(int i=0;i<n;i++)
     {
         cout<<arr[i]<<endl;
