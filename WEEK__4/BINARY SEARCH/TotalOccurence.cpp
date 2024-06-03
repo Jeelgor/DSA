@@ -2,7 +2,8 @@
 using namespace std;
 int FindOccurence(int arr[],int n,int target)
 {
-    int FirstOcc=FindOccurence(arr,n,target);
+    int FirstOcc=FindOccurence(arr,n,target); 
+    cout<<FirstOcc;
     int LastOcc=FindOccurence(arr,n,target);
     int TotalOc = LastOcc - FirstOcc + 1;
     return TotalOc;

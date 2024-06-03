@@ -17,8 +17,13 @@ public:
         this->data = data;
         this->next = NULL;
     }
+    ~Node()
+    {
+        cout << "Destructore Called..." << this->data << endl;
+    }
 };
 void printLL(Node *head)
+{d)
 {
     Node *temp = head;
     while (temp != NULL)
@@ -94,6 +99,89 @@ void Createtail(Node *head, Node *&tail)
     tail = temp;
 }
 
+void InsertAtAnyPosition(Node *&head, Node *&tail, int data, int position)
+{
+    int length = getLenght(head);
+    if (position == 1)
+    {
+        InsertAtHead(head, tail, data);
+    }
+    else if (position == length + 1)
+    {
+        InsertAtTail(head, tail, data);
+    }
+    else
+    {
+        Node *newNode = new Node(data);
+        Node *prev = NULL;
+        Node *curr = head;
+        while (position != 1)
+        {
+            position--;
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = newNode;
+        newNode->next = curr;
+    }
+}
+
+void DeleteAtAnyPosition(Node *&head, Node *&tail, int position)
+{
+
+    if (head == NULL)
+    {
+        cout << "Can not delete coz its empty" << endl;
+        return;
+    }
+    if (head == tail)
+    {
+        Node *temp = head;
+        delete temp;
+        head = NULL;
+        tail = NULL;
+    }
+
+    int length = getLenght(head);
+    // head delete
+    if (position == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else if (position == length)
+    {
+        // find prev
+        Node *prev = head;
+        while (prev->next != tail)
+        {
+            prev = prev->next;
+        }
+        // prev node ka link break karo
+        prev->next = NULL;
+        delete tail;
+        tail = prev;
+    }
+    else
+    {
+        Node *prev = NULL;
+        Node *curr = head;
+        while (position != 1)
+        {
+            position--;
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+    // tail delete
+    // any positon se delete
+}
+
 int main()
 {
     Node *head = NULL;
@@ -106,6 +194,11 @@ int main()
     InsertAtTail(head, tail, 400);
 
     printLL(head);
+
+    DeleteAtAnyPosition(head, tail, 5);
+    printLL(head);
+    // InsertAtAnyPosition(head, tail, 200, 3);
+    // printLL(head);
     // // Node n1(29);
     // Node *First = new Node(20);
     // Node *Second = new Node(30);

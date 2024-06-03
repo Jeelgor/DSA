@@ -14,7 +14,7 @@ int ReveserArray(int arr[], int Size)
     {
         cout << arr[i] << " ";
     }
-}
+}                             
 int main()
 {
     int arr[6] = {10, 20, 30, 40, 50, 60};
@@ -23,3 +23,4 @@ int main()
 
     ReveserArray(arr, Size);
 }
+
